@@ -42,5 +42,15 @@ namespace Loginn
 				MessageBox.Show(ex.Message);
 			}
 		}
-	}
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

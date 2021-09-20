@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Loginn
 {
@@ -22,7 +23,7 @@ namespace Loginn
             InitializeComponent();
         }
 
-        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-NV76SQV;Initial Catalog=Loginn;Integrated Security=True");
+      
         public void Form1_Load(object sender, EventArgs e)
         {
         }
@@ -30,50 +31,18 @@ namespace Loginn
         private void button1_Click(object sender, EventArgs e)
         {
             Inicio ini = new Inicio();
-            OleDbConnection conexion = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\DELL\Documents\Usuario.accdb ");
-            OleDbCommand com = new OleDbCommand();
-            OleDbDataReader dtr;
-            conexion.Open();
-            com.Connection = conexion;
-            com.CommandType = CommandType.Text;
-            com.CommandText = "SELECT Contraseña FROM Usuarios WHERE nUsuario='" + txtUsuario.Text +"'";
-            try
-            {
-                dtr = com.ExecuteReader();
-                if (dtr.HasRows)
-                {
-                    while(dtr.Read())
-                    {
-                        if (dtr.GetValue(0).ToString() == txtContraseña.Text)
-                        {
+           
                             ini.Show();
                             this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("A ocurrido un error");
-                        }
-                    }
-                }
-            }
-            catch(Exception k)
-            {
-                MessageBox.Show(k.ToString());
-            }
+
+                      
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection("Data Source=DESKTOP-NV76SQV;Initial Catalog=Loginn;Integrated Security=True");
-            connection.Open();
-            SqlCommand comd = new SqlCommand("SELECT Contraseña FROM Users WHERE USuario= @vusuario AND Contraseña= @vContrasena",connection);
-            comd.Parameters.AddWithValue("@vusuario",txtUsuario.Text);
-            comd.Parameters.AddWithValue("@vContrasena", txtContraseña.Text);
-            SqlDataReader lector = comd.ExecuteReader();
-            if (lector.Read());
-            {
-                MessageBox.Show("Contraseña correcta");
-            }
+            conexion cone = new conexion();
+
+            cone.ObtenerConexion();
         }
 
         private void button2_Click(object sender, EventArgs e)
