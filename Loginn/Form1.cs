@@ -50,10 +50,12 @@ namespace Loginn
                         {
                             MessageBox.Show("Loggin Exitiso");
                         }
+                       
                         else
                         {
                             MessageBox.Show("Contraseña incorrecta");
                         }
+                       
                     }
                 }
             }
@@ -75,6 +77,11 @@ namespace Loginn
             {
                 MessageBox.Show("Contraseña correcta");
             }
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
