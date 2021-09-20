@@ -32,13 +32,13 @@ namespace Loginn
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OleDbConnection conexion = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\DELL\Documents\Usuario.accdb ");
+            OleDbConnection conexion = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\sistema\Sistema.accdb");
             OleDbCommand com = new OleDbCommand();
             OleDbDataReader dtr;
             conexion.Open();
             com.Connection = conexion;
             com.CommandType = CommandType.Text;
-            com.CommandText = "SELECT Contraseña FROM Usuarios WHERE nUsuario='" + txtUsuario.Text +"'";
+            com.CommandText = "SELECT clave FROM tusuario WHERE nombre ='" + txtUsuario.Text +"'";
             try
             {
                 dtr = com.ExecuteReader();
@@ -48,7 +48,7 @@ namespace Loginn
                     {
                         if (dtr.GetValue(0).ToString() == txtContraseña.Text)
                         {
-                            MessageBox.Show("Loggin Exitiso");
+                            MessageBox.Show("Loggin Exitoso");
                         }
                         else
                         {
