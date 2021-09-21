@@ -17,6 +17,7 @@ namespace Loginn
         public Form1()
         {
           //Oscar Manuel Lopez Velasquez
+          //Ana Carolina Guevara Rodriguez 
      OleDbConnection conexion = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\DELL\Documents\Usuario.accdb ");
             OleDbCommand com = new OleDbCommand();
             OleDbDataReader dtr;
